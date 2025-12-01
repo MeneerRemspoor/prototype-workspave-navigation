@@ -860,22 +860,21 @@ export const WorkspaceSwitcher = () => {
                         onMouseEnter={() => {
                           setHoveredIndex(index);
                           const row = rowRefs.current[index];
-                          const dropdown = dropdownRef.current;
-                          if (row && dropdown) {
-                            const rowRect = row.getBoundingClientRect();
-                            const dropdownRect = dropdown.getBoundingClientRect();
-                            const visibleRightEdge = row.offsetLeft - dropdown.scrollLeft + row.clientWidth;
-                            const left = dropdownRect.left + visibleRightEdge + 24;
-                            const top = rowRect.top + window.scrollY;
-                            setPeekPosition({
-                              left,
-                              top,
-                              debugLeft: dropdownRect.left + visibleRightEdge,
-                              debugTop: top,
-                              debugHeight: rowRect.height
-                            });
-                          }
-                        }}
+                          if (row) {
+                              const rowRect = row.getBoundingClientRect();
+
+                              // Position the peek card just to the right of the row,
+                              // vertically centered on the row
+                              const left = rowRect.right + 24;
+                              const top = rowRect.top + rowRect.height / 2;
+
+                              setPeekPosition({
+                                left,
+                                top,
+                              });
+                            }
+                          }}
+
                         onMouseLeave={() => {
                           setHoveredIndex(null);
                           setPeekPosition(null);
