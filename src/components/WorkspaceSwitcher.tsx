@@ -352,7 +352,7 @@ const WorkspacePreview = ({ workspace, children }: { workspace: Workspace, child
         <TooltipTrigger asChild>
           {children}
         </TooltipTrigger>
-        <TooltipContent side="right" className="w-80 p-4 z-[70]" sideOffset={423}>
+        <TooltipContent side="right" className="w-80 p-4 z-[70]" sideOffset={112}>
           <div className="space-y-3">
             <div className="flex items-start gap-3">
               <div className="shrink-0">
@@ -529,7 +529,7 @@ const SortableWorkspaceItem = ({
       </WorkspacePreview>
       
       {/* Actions: star for starred, remove and star for non-starred */}
-      <div className="flex items-center shrink-0 gap-1">
+      <div className="flex items-center shrink-0 gap-1 w-[68px] justify-end">
         {workspace.isFavorite ? (
           /* Star button for starred workspaces */
           <Button
